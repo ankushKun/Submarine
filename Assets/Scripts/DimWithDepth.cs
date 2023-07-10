@@ -13,7 +13,7 @@ public class DimWithDepth : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		light.intensity = 0.5f;
+		GetComponent<Light>().intensity = 0.5f;
 		lightMin = 0.05f;
 		lightMax = 0.5f;
 		positionMin = 2.0f;
@@ -29,6 +29,6 @@ public class DimWithDepth : MonoBehaviour
 			* (subPosition.position.y - positionMin) 
 			/ (positionMax - positionMin); 
 
-		light.intensity = lightIntensity;
+		GetComponent<Light>().intensity = lightIntensity;
 	}
 }

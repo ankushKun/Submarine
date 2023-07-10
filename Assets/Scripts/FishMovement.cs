@@ -10,6 +10,6 @@ public class FishMovement : MonoBehaviour {
 
 	void UpdateFacingDirection()
 	{
-		this.transform.rotation = Quaternion.LookRotation(rigidbody.velocity, Vector3.up);
+		this.transform.rotation = Quaternion.LookRotation(GetComponent<Rigidbody>().velocity, Vector3.up);
 	}
 }

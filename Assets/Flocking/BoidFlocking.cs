@@ -12,17 +12,17 @@ public class BoidFlocking : MonoBehaviour
 		{
 			if (controller)
 			{
-				rigidbody.velocity += steer() * Time.deltaTime;
+				GetComponent<Rigidbody>().velocity += steer() * Time.deltaTime;
 
 				// enforce minimum and maximum speeds for the boids
-				float speed = rigidbody.velocity.magnitude;
+				float speed = GetComponent<Rigidbody>().velocity.magnitude;
 				if (speed > controller.maxVelocity)
 				{
-					rigidbody.velocity = rigidbody.velocity.normalized * controller.maxVelocity;
+					GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * controller.maxVelocity;
 				}
 				else if (speed < controller.minVelocity)
 				{
-					rigidbody.velocity = rigidbody.velocity.normalized * controller.minVelocity;
+					GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * controller.minVelocity;
 				}
 			}
 			float waitTime = Random.Range(0.3f, 0.5f);
@@ -37,7 +37,7 @@ public class BoidFlocking : MonoBehaviour
 		randomize *= controller.randomness;
 
 		Vector3 center = controller.flockCenter - transform.localPosition;
-		Vector3 velocity = controller.flockVelocity - rigidbody.velocity;
+		Vector3 velocity = controller.flockVelocity - GetComponent<Rigidbody>().velocity;
 		Vector3 follow = controller.target.localPosition - transform.localPosition;
 
 		return (center + velocity + follow * 2 + randomize);

@@ -26,9 +26,9 @@ public class BoidController : MonoBehaviour
 			BoidFlocking boid = Instantiate(prefab, transform.position, transform.rotation) as BoidFlocking;
 			boid.transform.parent = transform;
 			boid.transform.localPosition = new Vector3(
-							Random.value * collider.bounds.size.x,
-							Random.value * collider.bounds.size.y,
-							Random.value * collider.bounds.size.z) - collider.bounds.extents;
+							Random.value * GetComponent<Collider>().bounds.size.x,
+							Random.value * GetComponent<Collider>().bounds.size.y,
+							Random.value * GetComponent<Collider>().bounds.size.z) - GetComponent<Collider>().bounds.extents;
 			boid.controller = this;
 			boids.Add(boid);
 		}
@@ -41,7 +41,7 @@ public class BoidController : MonoBehaviour
 		foreach (BoidFlocking boid in boids)
 		{
 			center += boid.transform.localPosition;
-			velocity += boid.rigidbody.velocity;
+			velocity += boid.GetComponent<Rigidbody>().velocity;
 		}
 		flockCenter = center / flockSize;
 		flockVelocity = velocity / flockSize;

@@ -8,7 +8,7 @@ public class MoveFlock : MonoBehaviour {
 	void Start ()
 	{
 		float speed = 15f;
-		rigidbody.velocity =  (new Vector3(Random.Range(-1,1), Random.Range(-1,1), Random.Range(-1,1))) * speed;
+		GetComponent<Rigidbody>().velocity =  (new Vector3(Random.Range(-1,1), Random.Range(-1,1), Random.Range(-1,1))) * speed;
 	}
 	
 	// Update is called once per frame

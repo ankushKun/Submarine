@@ -1,22 +1,23 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class StayInWater : MonoBehaviour {
+public class StayInWater : MonoBehaviour
+{
 
-	public float waterLevel;
-	public float safeDistance;
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		if(rigidbody.position.y > waterLevel - safeDistance)
-		{
+    public float waterLevel;
+    public float safeDistance;
 
-			rigidbody.position = new Vector3(
-				rigidbody.position.x,
-				waterLevel - safeDistance,
-				rigidbody.position.z);
-				
-		}
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        if (GetComponent<Rigidbody>().position.y > waterLevel - safeDistance)
+        {
+
+            GetComponent<Rigidbody>().position = new Vector3(
+                GetComponent<Rigidbody>().position.x,
+                waterLevel - safeDistance,
+                GetComponent<Rigidbody>().position.z);
+
+        }
+    }
 }

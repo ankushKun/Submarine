@@ -20,7 +20,7 @@ public class Pulse : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		light.intensity = Mathf.PingPong(Time.time * speed, maxIntensity);
+		GetComponent<Light>().intensity = Mathf.PingPong(Time.time * speed, maxIntensity);
 	}
 }
 
